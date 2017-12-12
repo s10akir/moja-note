@@ -14,11 +14,14 @@ db.find('', function (err, docs) {
     });
 });
 
+
+const marked = require('marked');
+
+
 function preview(id) {
     db.find(id, function (err, docs) {
         console.log(docs);
-        let dom = '<h1>' + docs[0]['title'] + '</h1>' +
-                  '<p>'+ docs[0]['text'] + '</p>';
+        let dom = '<h1>' + docs[0]['title'] + '</h1>' + marked(docs[0]['text']);
         document.getElementById('note-view-body').innerHTML = dom;
     })
 }

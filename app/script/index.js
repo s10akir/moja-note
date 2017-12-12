@@ -1,7 +1,7 @@
 'use strict';
 
-const Datasotre = require('nedb');
-let db = new Datasotre({
+const Datastore = require('nedb');
+let db = new Datastore({
     filename: 'app/db/notes.db',
     autoload: true
 });

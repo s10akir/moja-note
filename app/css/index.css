@@ -1,4 +1,5 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'style.css';
 
 html, body {
     height: 100%;
@@ -7,6 +8,7 @@ html, body {
 
 #info {
     height: 48px;
+    border-bottom: solid 1px #eee;
 }
 
 #notes {
@@ -14,13 +16,20 @@ html, body {
     width: 300px;
     background-color: #fbfbfb;
     float: left;
-    border: solid 1px #eee;
+    border-right: solid 1px #eee;
 }
 
 .note {
+    font-size: 11pt;
     padding: 10px;
     border-bottom: solid 1px #eee;
     cursor : pointer;
+}
+
+.note-tag {
+    font-size: 10pt;
+    color: #666;
+    text-align: right;
 }
 
 #note-view {
@@ -31,10 +40,11 @@ html, body {
 
 #note-view-buttons {
     height: 56px;
-    border: solid 1px #eee;
-    border-left: none;
+    border-top: solid 1px #eee;
 }
 
 #note-view-body {
+    height: calc(100% - 56px);
     padding: 20px;
+    overflow: auto;
 }

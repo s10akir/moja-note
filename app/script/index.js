@@ -9,7 +9,7 @@ let db = new Datastore({
 db.find('', function (err, docs) {
     docs.forEach(function (element) {
         console.log(element['title']);
-        let dom = '<div class="note" id="'+ element['_id'] + '" onclick="preview(' + element['_id'] +');">' + element['title'] + '<div class="note-tag">' + element['tag'] + '</div></div>';
+        let dom = '<div class="note" id="'+ element['_id'] + '" onclick="preview(\'' + element['_id'] +'\');">' + element['title'] + '<div class="note-tag">' + element['tag'] + '</div></div>';
         document.getElementById('notes-search').insertAdjacentHTML('afterend', dom);
     });
 });
@@ -19,7 +19,9 @@ const marked = require('marked');
 
 
 function preview(id) {
-    db.find(id, function (err, docs) {
+    console.log(id);
+    db.find({_id: id}, function (err, docs) {
+        console.log(docs);
         let dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);
         document.getElementById('note-view-body').innerHTML = dom;
     })

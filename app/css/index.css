@@ -1,1 +1,40 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#info {
+    height: 48px;
+}
+
+#notes {
+    height: calc(100% - 48px);
+    width: 300px;
+    background-color: #fbfbfb;
+    float: left;
+    border: solid 1px #eee;
+}
+
+.note {
+    padding: 10px;
+    border-bottom: solid 1px #eee;
+    cursor : pointer;
+}
+
+#note-view {
+    height: calc(100% - 48px);
+    width: calc(100% - 300px);
+    float: left;
+}
+
+#note-view-buttons {
+    height: 56px;
+    border: solid 1px #eee;
+    border-left: none;
+}
+
+#note-view-body {
+    padding: 20px;
+}

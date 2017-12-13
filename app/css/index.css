@@ -40,6 +40,8 @@ html, body {
 }
 
 #note-view-buttons {
+    text-align: right;
+    padding: 6px;
     height: 56px;
     border-top: solid 1px #eee;
 }

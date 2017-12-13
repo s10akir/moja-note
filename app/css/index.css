@@ -10,7 +10,10 @@ html, body {
 #info {
     height: 48px;
     border-bottom: solid 1px #eee;
+    margin: auto;
+    padding: 5px;
 }
+
 
 #notes {
     height: calc(100% - 48px);

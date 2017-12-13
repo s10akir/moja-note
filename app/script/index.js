@@ -17,9 +17,10 @@ db.find('', function (err, docs) {
 
 const marked = require('marked');
 
-
+let selected_note = null;
 function preview(id) {
     console.log(id);
+    selected_note = id;
     db.find({_id: id}, function (err, docs) {
         console.log(docs);
         let dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);

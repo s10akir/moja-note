@@ -1,6 +1,6 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import 'font-awesome.min.css';
-@import 'style.css';
+@import 'view.css';
 
 html, body {
     height: 100%;

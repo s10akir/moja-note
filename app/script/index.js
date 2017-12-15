@@ -1,5 +1,7 @@
 'use strict';
 
+const $ = require('jquery');
+
 const Datastore = require('nedb');
 let db = new Datastore({
     filename: 'app/db/notes.db',

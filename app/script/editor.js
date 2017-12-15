@@ -35,7 +35,7 @@ if (note_id) {
         $('#title').val(docs[0]['title']);
     });
 } else {
-    let doc = {"title":"","text":"","tags":""};
+    let doc = {"title":"","text":"","tag":""};
     db.insert(doc, function(err, newDoc){
         note_id = newDoc['_id'];
     });

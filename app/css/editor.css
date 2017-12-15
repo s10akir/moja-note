@@ -1,2 +1,14 @@
 @import 'style.css';
 @import '../../node_modules/codemirror/lib/codemirror.css';
+
+html, body {
+    height: 100%;
+}
+
+#editor-area {
+    height: calc(100% - 32px);
+}
+
+.CodeMirror {
+    height: 100%;
+}

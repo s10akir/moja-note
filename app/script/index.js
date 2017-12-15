@@ -8,6 +8,9 @@ let db = new Datastore({
     autoload: true
 });
 
+// 空ドキュメントの削除
+db.remove({'text':'', 'title':''}, { multi: true });
+
 db.find('', function (err, docs) {
     docs.forEach(function (element) {
         console.log(element['title']);

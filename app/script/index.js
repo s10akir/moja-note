@@ -19,6 +19,15 @@ db.find('', function (err, docs) {
 });
 
 
+$('#new-note').on('click', function (){
+    sessionStorage.note = 'null';
+    window.location.href = 'view/editor.html';
+});
+
+$('#edit-note').on('click', function (){
+    window.location.href = 'view/editor.html';
+});
+
 const marked = require('marked');
 
 function preview(id) {

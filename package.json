@@ -19,6 +19,7 @@
   "description": "",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "codemirror": "^5.32.0",
     "electron": "^1.7.9",
     "jquery": "^3.2.1",
     "marked": "^0.3.7",

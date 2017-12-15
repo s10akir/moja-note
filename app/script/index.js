@@ -1,5 +1,7 @@
 'use strict';
 
+sessionStorage.note = null; // 選択中ノート情報の初期化
+
 const $ = require('jquery');
 
 const Datastore = require('nedb');
@@ -19,10 +21,9 @@ db.find('', function (err, docs) {
 
 const marked = require('marked');
 
-let selected_note = null;
 function preview(id) {
     console.log(id);
-    selected_note = id;
+    sessionStorage.note = id; // 選択中ノート情報の設定
     db.find({_id: id}, function (err, docs) {
         console.log(docs);
         let dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);

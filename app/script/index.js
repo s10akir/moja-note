@@ -1,7 +1,5 @@
 'use strict';
 
-sessionStorage.note = 'null'; // 選択中ノート情報の初期化
-
 const $ = require('jquery');
 
 const Datastore = require('nedb');

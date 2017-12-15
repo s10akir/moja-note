@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>moja-note</title>
     <link rel="stylesheet" type="text/css" href="../css/editor.css">
+    <script>CodeMirror = require('codemirror');</script>
 </head>
 <body>
     <a href="../index.html">back</a>
@@ -13,8 +14,10 @@
     </div>
 </body>
 <footer>
-    <script src="../script/editor.js"></script>
     <!-- codeMirror addons -->
     <script src="../../node_modules/codemirror/addon/edit/continuelist.js"></script>
+    <script src="../../node_modules/codemirror/mode/markdown/markdown.js"></script>
+
+    <script src="../script/editor.js"></script>
 </footer>
 </html>

@@ -9,7 +9,6 @@ let db = new Datastore({
 });
 
 // エディタ起動
-const CodeMirror = require('codemirror');
 let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     mode: "markdown",
     indentUnit: 4,

@@ -54,7 +54,8 @@ function preview(id) {
     sessionStorage.note = id; // 選択中ノート情報の設定
     db.find({_id: id}, function (err, docs) {
         console.log(docs);
-        let dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);
+        let dom;
+        dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);
         document.getElementById('note-view-body').innerHTML = dom;
     })
 }

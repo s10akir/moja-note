@@ -28,8 +28,18 @@ $('#new-note').on('click', function (){
     window.location.href = 'view/editor.html';
 });
 
-$('#edit-note').on('click', function (){
-    window.location.href = 'view/editor.html';
+$('a').on('click', function () {
+    switch (this.id) {
+        case 'edit-note':
+            window.location.href = 'view/editor.html';
+            break;
+        case 'delete-note':
+            console.log('delete!');
+            break;
+        default:
+            console.log('未実装です');
+            break;
+    }
 });
 
 const marked = require('marked');

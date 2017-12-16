@@ -9,22 +9,6 @@ img {
     max-width: 100%;
 }
 
-a:link {
-    color:#888888; text-decoration:none
-}
-
-a:visited {
-    color:#888888; text-decoration:none
-}
-
-a:hover {
-    color:#888888; text-decoration:none
-}
-
-a:active {
-    color:#888888; text-decoration:none
-}
-
 #info {
     height: 48px;
     border-bottom: solid 1px #eee;
@@ -66,6 +50,22 @@ a:active {
     padding: 6px;
     height: 56px;
     border-top: solid 1px #eee;
+}
+
+#note-view-buttons a:link {
+    color:#888888; text-decoration:none
+}
+
+#note-view-buttons a:visited {
+    color:#888888; text-decoration:none
+}
+
+#note-view-buttons a:hover {
+    color:#888888; text-decoration:none
+}
+
+#note-view-buttons a:active {
+    color:#888888; text-decoration:none
 }
 
 #note-view-body {

@@ -19,6 +19,9 @@ db.find('', function (err, docs) {
     });
 });
 
+if (sessionStorage.note !== 'null') {
+    preview(sessionStorage.note);
+}
 
 $('#new-note').on('click', function (){
     sessionStorage.note = 'null';

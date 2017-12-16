@@ -42,7 +42,7 @@ $('a').on('click', function () {
             }
             break;
         default:
-            console.log('未実装です');
+            window.alert('未実装機能です。悔い改めて。');
             break;
     }
 });

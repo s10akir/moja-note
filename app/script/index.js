@@ -34,7 +34,12 @@ $('a').on('click', function () {
             window.location.href = 'view/editor.html';
             break;
         case 'delete-note':
-            console.log('delete!');
+            if (window.confirm('削除してもよろしいですか？')) {
+                db.remove({'_id':sessionStorage.note}, {});
+                sessionStorage.note = 'null';
+                console.log('delete!');
+                location.reload();
+            }
             break;
         default:
             console.log('未実装です');

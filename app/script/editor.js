@@ -1,6 +1,7 @@
 'use strict';
 
 const $ = require('jquery');
+const marked = require('marked')
 
 const Datastore = require('nedb');
 let db = new Datastore({
@@ -30,8 +31,12 @@ console.log('editing:' + note_id);
 if (note_id) {
     db.find({'_id': note_id}, function (err, docs) {
         console.log(docs);
-        editor.setValue(docs[0]['text']);
-        $('#title').val(docs[0]['title']);
+        let title = docs[0]['title'];
+        let text = docs[0]['text'];
+        $('#title').val(title);
+        $('#preview-title').text(title);
+        editor.setValue(text);
+        $('#preview-text').html(marked(text));
     });
 } else {
     let doc = {"title":"タイトル未定義","text":"","tag":""};
@@ -42,14 +47,18 @@ if (note_id) {
 
 // 編集時自動保存
 editor.on("change" , function () {
+    let text = editor.getValue();
     db.update({'_id': note_id},
-        {$set:{'text': editor.getValue()}},
+        {$set:{'text': text}},
     );
+    $('#preview-text').html(marked(text));
 });
 
 // title編集検知
 $('#title').on('keyup', function () {
+    let title = $('#title').val();
     db.update({'_id': note_id},
-        {$set:{'title': $('#title').val()}},
+        {$set:{'title': title}},
     );
+    $('#preview-title').text(title);
 });

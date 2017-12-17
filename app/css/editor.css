@@ -6,9 +6,24 @@ html, body {
 }
 
 #editor-area {
-    height: calc(100% - 32px);
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+
+#preview {
+    height: 100%;
+    width: 50%;
+    float: left;
+    padding: 10px;
+    overflow: auto;
+}
+
+#preview img {
+    max-width: 100%;
 }
 
 .CodeMirror {
-    height: 100%;
+    height: calc(100% - 32px);
+    margin: 0 10px;
 }

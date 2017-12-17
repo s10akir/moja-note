@@ -12,6 +12,8 @@ html, body {
 }
 
 #preview {
+    border-left: solid 1px #eee;
+    background-color: #fafafa;
     height: 100%;
     width: 50%;
     float: left;

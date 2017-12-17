@@ -14,3 +14,23 @@ h1 {
 h2 {
     border-bottom: dashed 1px #ccc;
 }
+
+table {
+    border: solid 1px #ccc;
+    width: 100%;
+}
+
+th {
+    font-weight:bold;
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+td {
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+td img {
+    max-width: 100%;
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 const $ = require('jquery');
-const marked = require('marked')
+const marked = require('marked');
 
 const Datastore = require('nedb');
 let db = new Datastore({
@@ -43,7 +43,7 @@ if (note_id) {
 } else {
     let doc = {"title":"タイトル未定義","text":"","tag":""};
     db.insert(doc, function(err, newDoc){
-        note_id = newDoc['_id'];
+        note_id = newDoc['_id']
     });
 }
 
@@ -51,7 +51,7 @@ if (note_id) {
 editor.on("change" , function () {
     let text = editor.getValue();
     db.update({'_id': note_id},
-        {$set:{'text': text}},
+        {$set:{'text': text}}
     );
     $('#preview-text').html(marked(text));
 });
@@ -60,7 +60,7 @@ editor.on("change" , function () {
 $('#title').on('keyup', function () {
     let title = $('#title').val();
     db.update({'_id': note_id},
-        {$set:{'title': title}},
+        {$set:{'title': title}}
     );
     $('#preview-title').text(title);
 });

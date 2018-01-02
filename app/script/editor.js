@@ -64,3 +64,8 @@ $('#title').on('keyup', function () {
     );
     $('#preview-title').text(title);
 });
+
+// edit終了ボタン
+$("#exit-edit").on('click', function () {
+    window.location.href = "../index.html";
+});

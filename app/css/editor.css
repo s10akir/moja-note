@@ -11,6 +11,18 @@ html, body {
     float: left;
 }
 
+#title {
+    width: calc(100% - 10px);
+    border: none;
+    border-bottom: solid 2px #eee;
+    margin: 0 5px;
+    font-size: 17pt;
+}
+
+#title:focus {
+    outline: none;
+}
+
 #preview {
     border-left: solid 1px #eee;
     background-color: #fafafa;
@@ -25,7 +37,22 @@ html, body {
     max-width: 100%;
 }
 
+#exit-edit {
+    border: solid 1px #ccc;
+    background-color: white;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+#exit-edit:focus {
+    outline: none;
+}
+
 .CodeMirror {
-    height: calc(100% - 32px);
+    height: calc(100% - 36px);
     margin: 0 10px;
 }

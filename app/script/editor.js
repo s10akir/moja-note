@@ -11,13 +11,13 @@ let db = new Datastore({
 
 // エディタ起動
 let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
-    mode: "markdown",
+    mode: 'markdown',
     indentUnit: 4,
     continuelist: true,
     allowAtxHeaderWithoutSpace: true,
     lineWrapping: true,
     extraKeys: {
-        "Enter": "newlineAndIndentContinueMarkdownList"
+        'Enter': 'newlineAndIndentContinueMarkdownList'
     }
 });
 
@@ -41,14 +41,14 @@ if (note_id) {
         $('#preview-text').html(marked(text));
     });
 } else {
-    let doc = {"title":"タイトル未定義","text":"","tag":""};
+    let doc = {'title':'タイトル未定義','text':'','tag':''};
     db.insert(doc, function(err, newDoc){
         note_id = newDoc['_id']
     });
 }
 
 // 編集時自動保存
-editor.on("change" , function () {
+editor.on('change' , function () {
     let text = editor.getValue();
     db.update({'_id': note_id},
         {$set:{'text': text}}
@@ -67,5 +67,5 @@ $('#title').on('keyup', function () {
 
 // edit終了ボタン
 $("#exit-edit").on('click', function () {
-    window.location.href = "../index.html";
+    window.location.href = '../index.html';
 });

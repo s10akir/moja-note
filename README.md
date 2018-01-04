@@ -1,6 +1,7 @@
 **※moja-noteは現在アルファ版です**
 
 # moja-note
+![](https://user-images.githubusercontent.com/34061817/34567566-1a9297da-f1a6-11e7-8f21-7a8246585638.png)
 
 ## これなに
 markdownのエディタです。授業中のノート取りを快適にするために作りました。かなりKobitoに影響されています。

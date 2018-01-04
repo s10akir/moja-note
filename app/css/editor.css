@@ -54,5 +54,5 @@ html, body {
 
 .CodeMirror {
     height: calc(100% - 36px);
-    margin: 0 10px;
+    margin: 0 5px 0 10px;
 }

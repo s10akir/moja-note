@@ -9,7 +9,7 @@ let db = new Datastore({
 });
 
 // 空ドキュメントの削除
-db.remove({'text':'', 'title':''}, { multi: true });
+db.remove({'text':'', 'title':'タイトル未定義'}, { multi: true });
 
 db.find('', function (err, docs) {
     docs.forEach(function (element) {

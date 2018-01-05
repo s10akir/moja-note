@@ -16,6 +16,7 @@ let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     continuelist: true,
     allowAtxHeaderWithoutSpace: true,
     lineWrapping: true,
+    keyMap: 'sublime',
     extraKeys: {
         'Enter': 'newlineAndIndentContinueMarkdownList'
     }

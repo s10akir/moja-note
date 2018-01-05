@@ -19,12 +19,12 @@ db.find('', function (err, docs) {
     });
 });
 
-if (sessionStorage.note !== 'null') {
+if (sessionStorage.note !== 'undefined') {
     preview(sessionStorage.note);
 }
 
 $('#new-note').on('click', function (){
-    sessionStorage.note = 'null';
+    sessionStorage.note = 'undefined';
     window.location.href = 'view/editor.html';
 });
 

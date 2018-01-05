@@ -24,7 +24,7 @@ let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
 editor.focus();
 
 let note_id;
-if (sessionStorage.note !== 'null') {
+if (sessionStorage.note !== 'undefined') {
     note_id = sessionStorage.note;
 }
 console.log('editing:' + note_id);

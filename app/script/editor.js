@@ -67,6 +67,6 @@ $('#title').on('keyup', function () {
 });
 
 // edit終了ボタン
-$("#exit-edit").on('click', function () {
+$('#exit-edit').on('click', function () {
     window.location.href = '../index.html';
 });

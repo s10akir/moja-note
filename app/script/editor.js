@@ -18,7 +18,10 @@ let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     lineWrapping: true,
     keyMap: 'sublime',
     extraKeys: {
-        'Enter': 'newlineAndIndentContinueMarkdownList'
+        'Enter': 'newlineAndIndentContinueMarkdownList',
+        'Ctrl-P': function () {
+            togglePreview();
+        }
     }
 });
 
@@ -69,4 +72,14 @@ $('#title').on('keyup', function () {
 // edit終了ボタン
 $('#exit-edit').on('click', function () {
     window.location.href = '../index.html';
+});
+
+// プレビュー切り替え
+function togglePreview() {
+    $('#preview').toggleClass('hide');
+    $('#editor-area').toggleClass('full-width');
+}
+// プレビュー切り替えボタン
+$('#toggle-preview').on('click', function () {
+    togglePreview();
 });

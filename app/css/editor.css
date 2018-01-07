@@ -5,6 +5,16 @@ html, body {
     height: 100%;
 }
 
+button {
+    border: solid 1px #ccc;
+    background-color: white;
+    border-radius: 100%;
+}
+
+button:focus {
+    outline: none;
+}
+
 #editor-area {
     height: 100%;
     width: 50%;
@@ -38,21 +48,31 @@ html, body {
 }
 
 #exit-edit {
-    border: solid 1px #ccc;
-    background-color: white;
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 50px;
     height: 50px;
-    border-radius: 100%;
 }
 
-#exit-edit:focus {
-    outline: none;
+#toggle-preview {
+    position: fixed;
+    bottom: 30px;
+    right: 90px;
+    width: 50px;
+    height: 50px;
 }
 
 .CodeMirror {
     height: calc(100% - 36px);
     margin: 0 5px 0 10px;
+    z-index: 0;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.full-width {
+    width: 100% !important;
 }

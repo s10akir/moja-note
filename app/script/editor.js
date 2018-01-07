@@ -78,6 +78,8 @@ $('#exit-edit').on('click', function () {
 function togglePreview() {
     $('#preview').toggleClass('hide');
     $('#editor-area').toggleClass('full-width');
+    editor.replaceRange(' ', CodeMirror.Pos(editor.getCursor().line, editor.getCursor().ch));
+    editor.replaceRange('', CodeMirror.Pos(editor.getCursor().line, editor.getCursor().ch - 1), CodeMirror.Pos(editor.getCursor().line, editor.getCursor().ch))
 }
 // プレビュー切り替えボタン
 $('#toggle-preview').on('click', function () {

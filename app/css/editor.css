@@ -1,6 +1,12 @@
 @import 'style.css';
 @import '../../node_modules/codemirror/lib/codemirror.css';
 
+@font-face {
+    font-family: Noto;
+
+    src: url('../fonts/NotoSansMonoCJKjp-Regular.otf') format('opentype');
+}
+
 html, body {
     height: 100%;
 }
@@ -67,6 +73,7 @@ button:focus {
     height: calc(100% - 36px);
     margin: 0 5px 0 10px;
     z-index: 0;
+    font-family: Noto;
 }
 
 .hide {

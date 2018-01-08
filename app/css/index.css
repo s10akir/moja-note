@@ -17,7 +17,7 @@ img {
 }
 
 
-#notes {
+#notes-bar {
     height: calc(100% - 48px);
     width: 300px;
     background-color: #fbfbfb;

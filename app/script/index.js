@@ -10,14 +10,20 @@ let db = new Datastore({
 
 // 空ドキュメントの削除
 db.remove({'text':'', 'title':'タイトル未定義'}, { multi: true });
+searchNote();
 
-db.find('', function (err, docs) {
-    docs.forEach(function (element) {
-        console.log(element['title']);
-        let dom = '<div class="note" id="'+ element['_id'] + '" onclick="preview(\'' + element['_id'] +'\');">' + element['title'] + '<div class="note-tag">' + element['tag'] + '</div></div>';
-        document.getElementById('notes-search').insertAdjacentHTML('afterend', dom);
+// ドキュメント検索
+function searchNote(text) {
+    let pattern = RegExp(text);
+    $('#notes').empty();
+    db.find({'title':pattern}, function (err, docs) {
+        docs.forEach(function (element) {
+            console.log(element['title']);
+            let dom = '<div class="note" id="' + element['_id'] + '" onclick="preview(\'' + element['_id'] + '\');">' + element['title'] + '<div class="note-tag">' + element['tag'] + '</div></div>';
+            $('#notes').append(dom);
+        });
     });
-});
+}
 
 if (sessionStorage.note !== 'undefined') {
     preview(sessionStorage.note);
@@ -59,3 +65,7 @@ function preview(id) {
         document.getElementById('note-view-body').innerHTML = dom;
     })
 }
+
+$('#notes-search').on('keyup', function () {
+    searchNote($('#notes-search').val());
+});

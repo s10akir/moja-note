@@ -1,10 +1,11 @@
 'use strict';
 
 const $ = require('jquery');
+const home_path = process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
 
 const Datastore = require('nedb');
 let db = new Datastore({
-    filename: 'app/db/notes.db',
+    filename: home_path + '/.moja-note/notes.db',
     autoload: true
 });
 

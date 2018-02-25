@@ -15,15 +15,6 @@ markdownのエディタです。授業中のノート取りを快適にするた
 
 の機能を備えています。
 
-## install
-**※現在moja-noteはアルファ版です。インストールは推奨しません。**
+## download
+[here](https://github.com/s10akir/moja-note/releases)
 
-### need
-* nodejs
-* electron
-
-`git clone https://github.com/s10akir/moja-note`
-
-`npm install`
-
-`electron .`

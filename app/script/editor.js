@@ -1,8 +1,8 @@
 'use strict';
 
 const $ = require('jquery');
-const marked = require('marked');
 const home_path = process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
+const webview = document.getElementById('preview');
 
 const Datastore = require('nedb');
 let db = new Datastore({
@@ -41,9 +41,12 @@ if (note_id) {
         let title = docs[0]['title'];
         let text = docs[0]['text'];
         $('#title').val(title);
-        $('#preview-title').text(title);
         editor.setValue(text);
-        $('#preview-text').html(marked(text));
+        webview.addEventListener('dom-ready', () => {
+            webview.send('text-update', text);
+            webview.send('title-update', title);
+            webview.openDevTools();
+        });
     });
 } else {
     let doc = {'title':'タイトル未定義','text':'','tag':''};
@@ -58,7 +61,7 @@ editor.on('change' , function () {
     db.update({'_id': note_id},
         {$set:{'text': text}}
     );
-    $('#preview-text').html(marked(text));
+    webview.send('text-update', text);
 });
 
 // title編集検知
@@ -67,7 +70,7 @@ $('#title').on('keyup', function () {
     db.update({'_id': note_id},
         {$set:{'title': title}}
     );
-    $('#preview-title').text(title);
+    webview.send('title-update', title);
 });
 
 // edit終了ボタン

@@ -11,10 +11,7 @@
         <input id="title" placeholder="Enter title">
         <textarea id="editor"></textarea>
     </div>
-    <div id="preview">
-        <note-title id="preview-title"></note-title>
-        <div id="preview-text"></div>
-    </div>
+    <webview id="preview" src="preview.html" preload="../script/preview.js"></webview>
     <button id="exit-edit"><li class="fa fa-reply"></li></button>
     <button id="toggle-preview"><li class="fa fa-eye"></li></button>
 </body>

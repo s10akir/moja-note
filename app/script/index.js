@@ -66,7 +66,6 @@ function preview(id) {
     sessionStorage.note = id; // 選択中ノート情報の設定
     db.find({_id: id}, function (err, docs) {
         console.log(docs);
-        webview.openDevTools();
         webview.send('title-update', docs[0]['title']);
         webview.send('text-update', docs[0]['text']);
     })

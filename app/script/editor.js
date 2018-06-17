@@ -45,7 +45,6 @@ if (note_id) {
         webview.addEventListener('dom-ready', () => {
             webview.send('text-update', text);
             webview.send('title-update', title);
-            webview.openDevTools();
         });
     });
 } else {

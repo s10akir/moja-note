@@ -16,16 +16,11 @@
         <div id="notes"></div>
     </div>
     <div id="note-view">
-        <div id="note-view-body">
-            <note-title>moja-note α</note-title>
-            <h1>Welcome to ようこそ！モジャリパーク</h1>
-            <p>授業ノートをより快適に。</p>
-            <h2>リリースログ</h2>
-            <pre>ver. 0.0.0: αリリース</pre>
-        </div>
+        <webview id="note-view-body" src="view/preview.html" preload="script/preview.js">
+        </webview>
         <footer id="note-view-buttons">
             <a id="edit-note" class="fa fa-pencil" href="#"></a>
-            <a class="fa fa-share" href="#"></a>
+            <a id="print-note" class="fa fa-share" href="#"></a>
             <a id="delete-note" class="fa fa-trash-o" href="#"></a>
         </footer>
     </div>

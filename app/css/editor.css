@@ -45,12 +45,7 @@ button:focus {
     height: 100%;
     width: 50%;
     float: left;
-    padding: 10px;
     overflow: auto;
-}
-
-#preview img {
-    max-width: 100%;
 }
 
 #exit-edit {

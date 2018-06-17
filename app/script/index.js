@@ -2,6 +2,10 @@
 
 const $ = require('jquery');
 const home_path = process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
+const webview = document.getElementById('note-view-body');
+const {remote} = require('electron');
+const Dialog = remote.dialog;
+const fs = require('fs');
 
 const Datastore = require('nedb');
 let db = new Datastore({
@@ -48,22 +52,41 @@ $('a').on('click', function () {
                 location.reload();
             }
             break;
+        case 'print-note':
+            printNote();
+            break;
         default:
             window.alert('未実装機能です。悔い改めて。');
             break;
     }
 });
 
-const marked = require('marked');
-
 function preview(id) {
     console.log(id);
     sessionStorage.note = id; // 選択中ノート情報の設定
     db.find({_id: id}, function (err, docs) {
         console.log(docs);
-        let dom;
-        dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);
-        document.getElementById('note-view-body').innerHTML = dom;
+        webview.send('title-update', docs[0]['title']);
+        webview.send('text-update', docs[0]['text']);
+    })
+}
+
+function printNote() {
+    webview.print({}, function(error, data) {
+        if (error) throw error;
+        Dialog.showSaveDialog(null, {
+            title: '保存',
+            defaultPath: '/',
+            filters: [
+                {name: 'PDF file', extensions: ['pdf']}
+            ]
+        }, (savedFiles) => {
+            if (savedFiles) {
+                fs.writeFile(savedFiles, data, () => {
+                    window.alert(savedFiles + 'に出力しました。');
+                });
+            }
+        });
     })
 }
 

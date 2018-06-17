@@ -20,6 +20,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "codemirror": "^5.33.0",
+    "fs": "0.0.1-security",
     "hoek": "^5.0.3",
     "jquery": "^3.2.1",
     "marked": "^0.3.9",

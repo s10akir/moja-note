@@ -2,6 +2,7 @@
 
 const $ = require('jquery');
 const home_path = process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
+const webview = document.getElementById('note-view-body');
 
 const Datastore = require('nedb');
 let db = new Datastore({
@@ -54,16 +55,14 @@ $('a').on('click', function () {
     }
 });
 
-const marked = require('marked');
-
 function preview(id) {
     console.log(id);
     sessionStorage.note = id; // 選択中ノート情報の設定
     db.find({_id: id}, function (err, docs) {
         console.log(docs);
-        let dom;
-        dom = '<note-title>' + docs[0]['title'] + '</note-title>' + marked(docs[0]['text']);
-        document.getElementById('note-view-body').innerHTML = dom;
+        webview.openDevTools();
+        webview.send('title-update', docs[0]['title']);
+        webview.send('text-update', docs[0]['text']);
     })
 }
 

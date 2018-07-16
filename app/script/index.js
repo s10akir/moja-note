@@ -21,7 +21,7 @@ searchNote();
 function searchNote(text) {
     let pattern = RegExp(text);
     $('#notes').empty();
-    db.find({'title':pattern}, function (err, docs) {
+    db.find({'title':pattern}).sort({'title':1}).exec(function (err, docs) {
         docs.forEach(function (element) {
             console.log(element['title']);
             let dom = '<div class="note" id="' + element['_id'] + '" onclick="preview(\'' + element['_id'] + '\');">' + element['title'] + '<div class="note-tag">' + element['tag'] + '</div></div>';

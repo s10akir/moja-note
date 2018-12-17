@@ -30,9 +30,11 @@ function searchNote(text) {
     });
 }
 
-if (sessionStorage.note != null) {
-    preview(sessionStorage.note);
-}
+webview.addEventListener('dom-ready', () => {
+    if (sessionStorage.note != null) {
+        preview(sessionStorage.note);
+    }
+});
 
 $('#new-note').on('click', function (){
     sessionStorage.removeItem('note');

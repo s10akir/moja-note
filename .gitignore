@@ -2,3 +2,4 @@ node_modules/
 db/
 app/css/.sass-cache
 .idea/
+dist/

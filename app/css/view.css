@@ -37,15 +37,8 @@ td img {
 }
 
 @media print {
-    body {
-        page-break-inside: avoid;
-    }
-
     .page{
-        width: 297mm;
-        height: 210mm;
-        overflow: hidden;
-
+        width: 190mm;
         page-break-after: always;
     }
 }

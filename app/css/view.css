@@ -35,3 +35,17 @@ td {
 td img {
     max-width: 100%;
 }
+
+@media print {
+    body {
+        page-break-inside: avoid;
+    }
+
+    .page{
+        width: 297mm;
+        height: 210mm;
+        overflow: hidden;
+
+        page-break-after: always;
+    }
+}

@@ -30,12 +30,12 @@ function searchNote(text) {
     });
 }
 
-if (sessionStorage.note !== 'undefined') {
+if (sessionStorage.note != null) {
     preview(sessionStorage.note);
 }
 
 $('#new-note').on('click', function (){
-    sessionStorage.note = 'undefined';
+    sessionStorage.removeItem('note');
     window.location.href = 'view/editor.html';
 });
 
@@ -47,7 +47,7 @@ $('a').on('click', function () {
         case 'delete-note':
             if (window.confirm('削除してもよろしいですか？')) {
                 db.remove({'_id':sessionStorage.note}, {});
-                sessionStorage.note = 'null';
+                sessionStorage.removeItem('note');
                 console.log('delete!');
                 location.reload();
             }

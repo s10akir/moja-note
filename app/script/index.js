@@ -21,8 +21,8 @@ searchNote();
 function searchNote(text) {
     let pattern = RegExp(text);
     $('#notes').empty();
-    db.find({'title':pattern}).sort({'title':1}).exec(function (err, docs) {
-        docs.forEach(function (element) {
+    db.find({'title':pattern}).sort({'title':1}).exec((err, docs) => {
+        docs.forEach((element) => {
             console.log(element['title']);
             let dom = '<div class="note" id="' + element['_id'] + '" onclick="preview(\'' + element['_id'] + '\');">' + element['title'] + '<div class="note-tag">' + element['tag'] + '</div></div>';
             $('#notes').append(dom);
@@ -36,7 +36,7 @@ webview.addEventListener('dom-ready', () => {
     }
 });
 
-$('#new-note').on('click', function (){
+$('#new-note').on('click', () => {
     sessionStorage.removeItem('note');
     window.location.href = 'view/editor.html';
 });
@@ -66,7 +66,7 @@ $('a').on('click', function () {
 function preview(id) {
     console.log(id);
     sessionStorage.note = id; // 選択中ノート情報の設定
-    db.find({_id: id}, function (err, docs) {
+    db.find({_id: id}, (err, docs) => {
         console.log(docs);
         webview.send('title-update', docs[0]['title']);
         webview.send('text-update', docs[0]['text']);
@@ -92,6 +92,6 @@ function printNote() {
     })
 }
 
-$('#notes-search').on('keyup', function () {
+$('#notes-search').on('keyup', () => {
     searchNote($('#notes-search').val());
 });

@@ -16,6 +16,10 @@ img {
     padding: 5px;
 }
 
+#notes {
+    height: calc(100% - 35px);
+    overflow: auto;
+}
 
 #notes-bar {
     height: calc(100% - 48px);
